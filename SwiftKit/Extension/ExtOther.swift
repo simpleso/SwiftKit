@@ -19,3 +19,15 @@ extension UIImage{
         return image!
     }
 }
+
+extension TextField{
+    @IBInspectable
+    var placeholderColor: UIColor {
+        get {
+            return value(forKey: "_placeholderLabel.textColor") as! UIColor;
+        }
+        set {
+            setValue(newValue, forKeyPath: "_placeholderLabel.textColor");
+        }
+    }
+}

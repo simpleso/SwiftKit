@@ -10,5 +10,7 @@ target 'SwiftKit' do
   pod 'Alamofire'
   pod 'Kingfisher'
   pod 'SnapKit'
-
+  pod 'AsyncSwift'
+  pod 'SwiftyJSON'
+  
 end
