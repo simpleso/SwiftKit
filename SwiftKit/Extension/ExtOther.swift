@@ -30,4 +30,79 @@ extension TextField{
             setValue(newValue, forKeyPath: "_placeholderLabel.textColor");
         }
     }
+    
+    @IBInspectable
+    var leftMagin: CGFloat {
+        get {
+            let view = self.leftView
+            if view == nil{
+                return 0
+            }else{
+                return (view?.width)!
+            }
+        }
+        set {
+            let view = UIView()
+            view.height = self.height
+            view.width = newValue
+            view.x = 0
+            view.y = 0
+            self.leftView = view
+            self.leftViewMode = .always
+        }
+    }
 }
+
+extension UIBarButtonItem{
+    public convenience init(_ target: Any?, action: Selector ,nomal : String,highlighted:String) {
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage.init(named:nomal ), for: .normal)
+        btn.setImage(UIImage.init(named:highlighted ), for: .highlighted)
+        btn.width = (btn.currentImage?.size.width)!
+        btn.height = (btn.currentImage?.size.height)!
+        btn.addTarget(target, action: action, for: .touchUpInside)
+        self.init(customView: btn)
+    }
+}
+extension TextView{
+    @IBInspectable
+    var maginLeft: CGFloat {
+        get {
+           return self.contentInset.left
+        }
+        set {
+            self.contentInset.left = newValue
+        }
+    }
+    @IBInspectable
+    var maginTop: CGFloat {
+        get {
+            return self.contentInset.top
+        }
+        set {
+            self.contentInset.top = newValue
+        }
+    }
+    @IBInspectable
+    var maginRight: CGFloat {
+        get {
+            return self.contentInset.right
+        }
+        set {
+            self.contentInset.right = newValue
+        }
+    }
+    @IBInspectable
+    var maginBottom: CGFloat {
+        get {
+            return self.contentInset.bottom
+        }
+        set {
+            self.contentInset.bottom = newValue
+        }
+    }
+}
+
+
+
+

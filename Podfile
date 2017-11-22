@@ -12,5 +12,6 @@ target 'SwiftKit' do
   pod 'SnapKit'
   pod 'AsyncSwift'
   pod 'SwiftyJSON'
+  pod 'EZSwiftExtensions'
   
 end

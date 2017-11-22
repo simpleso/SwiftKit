@@ -11,6 +11,8 @@
 		2743683F1F936589009469EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2743683E1F936589009469EC /* AppDelegate.swift */; };
 		274368461F936589009469EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 274368451F936589009469EC /* Assets.xcassets */; };
 		275EE1111FB5F6A300D4B0E7 /* ExtDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275EE1101FB5F6A300D4B0E7 /* ExtDictionary.swift */; };
+		278EBF321FC56D48003F0C86 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EBF311FC56D48003F0C86 /* BaseView.swift */; };
+		278EBF341FC56E34003F0C86 /* BasePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278EBF331FC56E34003F0C86 /* BasePopupView.swift */; };
 		27E3012B1F93818B0066E4BE /* PreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3011C1F93818B0066E4BE /* PreView.swift */; };
 		27E3012C1F93818B0066E4BE /* ExtOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3011D1F93818B0066E4BE /* ExtOther.swift */; };
 		27E3012E1F93818B0066E4BE /* ExtFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3011F1F93818B0066E4BE /* ExtFrame.swift */; };
@@ -31,6 +33,8 @@
 		274368451F936589009469EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2743684A1F936589009469EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		275EE1101FB5F6A300D4B0E7 /* ExtDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDictionary.swift; sourceTree = "<group>"; };
+		278EBF311FC56D48003F0C86 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		278EBF331FC56E34003F0C86 /* BasePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePopupView.swift; sourceTree = "<group>"; };
 		27E3011C1F93818B0066E4BE /* PreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreView.swift; sourceTree = "<group>"; };
 		27E3011D1F93818B0066E4BE /* ExtOther.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtOther.swift; sourceTree = "<group>"; };
 		27E3011F1F93818B0066E4BE /* ExtFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtFrame.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 			children = (
 				27E301291F93818B0066E4BE /* BaseCell.swift */,
 				27E3012A1F93818B0066E4BE /* BaseViewController.swift */,
+				278EBF311FC56D48003F0C86 /* BaseView.swift */,
+				278EBF331FC56E34003F0C86 /* BasePopupView.swift */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -213,7 +219,7 @@
 				TargetAttributes = {
 					2743683A1F936589009469EC = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -258,6 +264,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftKit/Pods-SwiftKit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${BUILT_PRODUCTS_DIR}/EZSwiftExtensions/EZSwiftExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -266,6 +273,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZSwiftExtensions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -318,6 +326,8 @@
 				27E3012F1F93818B0066E4BE /* ExtLayer.swift in Sources */,
 				27E3012C1F93818B0066E4BE /* ExtOther.swift in Sources */,
 				27E3012B1F93818B0066E4BE /* PreView.swift in Sources */,
+				278EBF321FC56D48003F0C86 /* BaseView.swift in Sources */,
+				278EBF341FC56E34003F0C86 /* BasePopupView.swift in Sources */,
 				27E3012E1F93818B0066E4BE /* ExtFrame.swift in Sources */,
 				2728E0231FC3B6B400A092DF /* Common.swift in Sources */,
 				27E301321F93818B0066E4BE /* BaseCell.swift in Sources */,
@@ -444,11 +454,15 @@
 			baseConfigurationReference = F785D16AA36AA36D03DFB6DD /* Pods-SwiftKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andnux.SwiftKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,11 +473,15 @@
 			baseConfigurationReference = 9776344D57C0D8CC9399C255 /* Pods-SwiftKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andnux.SwiftKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
